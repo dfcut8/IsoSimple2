@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d082yo074j6d1"]
+
+[ext_resource type="Texture2D" uid="uid://db3wbg8y8up5q" path="res://Assets/Textures/isometric_player_1.png" id="1_s0eop"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3ax4"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s0eop")
+hframes = 8
+vframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l3ax4")
