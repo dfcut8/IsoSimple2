@@ -75,6 +75,6 @@ public partial class Player : CharacterBody2D
     {
         animationTree.Set("parameters/Idle/blend_position", direction);
         animationTree.Set("parameters/Move/blend_position", direction);
-        // animationTree.Set("parameters/Attack/blend_position", direction);
+        animationTree.Set("parameters/Attack/blend_position", direction);
     }
 }
