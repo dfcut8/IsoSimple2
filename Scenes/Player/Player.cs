@@ -10,7 +10,18 @@ public partial class Player : CharacterBody2D
     private const float acceleration = 600.0f;
     private const float friction = 400.0f;
 
+    // Nodes and states
+    private AnimationTree animationTree;
+    private AnimationNodeStateMachinePlayback animationStateMachine;
+
     private Vector2 direction = Vector2.Zero;
+
+    public override void _Ready()
+    {
+        animationTree = GetNode<AnimationTree>("AnimationTree");
+        animationStateMachine = (AnimationNodeStateMachinePlayback)
+            animationTree.Get("parameters/playback");
+    }
 
     public override void _Process(double delta)
     {
@@ -49,6 +60,7 @@ public partial class Player : CharacterBody2D
             else
             {
                 GD.Print("Idling");
+                animationStateMachine.Travel("Idle");
                 Velocity = Vector2.Zero;
             }
         }
