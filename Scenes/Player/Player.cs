@@ -15,6 +15,14 @@ public partial class Player : CharacterBody2D
     private AnimationNodeStateMachinePlayback animationStateMachine;
 
     private Vector2 direction = Vector2.Zero;
+    private State currentState = State.Idle;
+
+    private enum State
+    {
+        Idle,
+        Move,
+        Attack,
+    }
 
     public override void _Ready()
     {
@@ -25,7 +33,23 @@ public partial class Player : CharacterBody2D
 
     public override void _Process(double delta)
     {
-        PlayerMovement((float)delta);
+        switch (currentState)
+        {
+            case State.Idle:
+                PlayerMovement((float)delta);
+                break;
+            case State.Move:
+                PlayerMovement((float)delta);
+                break;
+            case State.Attack:
+                BasicAttack();
+                break;
+        }
+    }
+
+    public void ResetState()
+    {
+        currentState = State.Move;
     }
 
     private Vector2 IsometricMovement(Vector2 direction)
@@ -45,9 +69,16 @@ public partial class Player : CharacterBody2D
             "player_move_down"
         );
 
+        if (Input.IsActionJustPressed("player_attack"))
+        {
+            GD.Print("Attacking");
+            currentState = State.Attack;
+        }
+
         if (direction != Vector2.Zero)
         {
             GD.Print("Moving");
+            currentState = State.Move;
             UpdateAnimationState(direction);
             animationStateMachine.Travel("Move");
             Velocity = Velocity.LimitLength(speed);
@@ -62,6 +93,7 @@ public partial class Player : CharacterBody2D
             else
             {
                 GD.Print("Idling");
+                // currentState = State.Idle;
                 animationStateMachine.Travel("Idle");
                 Velocity = Vector2.Zero;
             }
@@ -76,5 +108,10 @@ public partial class Player : CharacterBody2D
         animationTree.Set("parameters/Idle/blend_position", direction);
         animationTree.Set("parameters/Move/blend_position", direction);
         animationTree.Set("parameters/Attack/blend_position", direction);
+    }
+
+    private void BasicAttack()
+    {
+        animationStateMachine.Travel("Attack");
     }
 }
