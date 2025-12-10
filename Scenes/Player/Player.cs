@@ -42,7 +42,7 @@ public partial class Player : CharacterBody2D
                 PlayerMovement((float)delta);
                 break;
             case State.Attack:
-                BasicAttack();
+                BasicAttack((float)delta);
                 break;
         }
     }
@@ -60,7 +60,7 @@ public partial class Player : CharacterBody2D
         return adjustedDirection;
     }
 
-    private void PlayerMovement(float delta)
+    private void ProcessPlayerMovementInputs(float delta)
     {
         direction = Input.GetVector(
             "player_move_left",
@@ -69,11 +69,43 @@ public partial class Player : CharacterBody2D
             "player_move_down"
         );
 
+        if (direction != Vector2.Zero)
+        {
+            Velocity = Velocity.LimitLength(speed);
+        }
+
+        if (direction == Vector2.Zero)
+        {
+            if (Velocity.Length() > (friction * delta))
+            {
+                Velocity -= Velocity.Normalized() * (friction * delta);
+            }
+            else
+            {
+                Velocity = Vector2.Zero;
+            }
+        }
+        Velocity += IsometricMovement(direction * acceleration * delta);
+        MoveAndSlide();
+    }
+
+    private void ProcessPlayerActionInputs()
+    {
         if (Input.IsActionJustPressed("player_attack"))
         {
             GD.Print("Attacking");
             currentState = State.Attack;
         }
+    }
+
+    private void PlayerMovement(float delta)
+    {
+        direction = Input.GetVector(
+            "player_move_left",
+            "player_move_right",
+            "player_move_up",
+            "player_move_down"
+        );
 
         if (direction != Vector2.Zero)
         {
@@ -98,7 +130,7 @@ public partial class Player : CharacterBody2D
                 Velocity = Vector2.Zero;
             }
         }
-
+        ProcessPlayerActionInputs();
         Velocity += IsometricMovement(direction * acceleration * delta);
         MoveAndSlide();
     }
@@ -110,8 +142,9 @@ public partial class Player : CharacterBody2D
         animationTree.Set("parameters/Attack/blend_position", direction);
     }
 
-    private void BasicAttack()
+    private void BasicAttack(float delta)
     {
+        ProcessPlayerMovementInputs(delta);
         animationStateMachine.Travel("Attack");
     }
 }
