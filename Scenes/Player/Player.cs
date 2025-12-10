@@ -49,6 +49,7 @@ public partial class Player : CharacterBody2D
         {
             GD.Print("Moving");
             UpdateAnimationState(direction);
+            animationStateMachine.Travel("Move");
             Velocity = Velocity.LimitLength(speed);
         }
 
@@ -73,7 +74,7 @@ public partial class Player : CharacterBody2D
     private void UpdateAnimationState(Vector2 direction)
     {
         animationTree.Set("parameters/Idle/blend_position", direction);
-        // animationTree.Set("parameters/Move/blend_position", direction);
+        animationTree.Set("parameters/Move/blend_position", direction);
         // animationTree.Set("parameters/Attack/blend_position", direction);
     }
 }

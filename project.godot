@@ -26,6 +26,11 @@ window/size/window_height_override=960
 
 project/assembly_name="IsoSimple2"
 
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
+
 [input]
 
 player_move_up={
