@@ -43,6 +43,7 @@ public partial class Player : CharacterBody2D
                 break;
             case State.Attack:
                 BasicAttack((float)delta);
+                PlayerMovement((float)delta);
                 break;
         }
     }
@@ -58,35 +59,6 @@ public partial class Player : CharacterBody2D
         adjustedDirection.X = direction.X - direction.Y;
         adjustedDirection.Y = (direction.X + direction.Y) / 2;
         return adjustedDirection;
-    }
-
-    private void ProcessPlayerMovementInputs(float delta)
-    {
-        direction = Input.GetVector(
-            "player_move_left",
-            "player_move_right",
-            "player_move_up",
-            "player_move_down"
-        );
-
-        if (direction != Vector2.Zero)
-        {
-            Velocity = Velocity.LimitLength(speed);
-        }
-
-        if (direction == Vector2.Zero)
-        {
-            if (Velocity.Length() > (friction * delta))
-            {
-                Velocity -= Velocity.Normalized() * (friction * delta);
-            }
-            else
-            {
-                Velocity = Vector2.Zero;
-            }
-        }
-        Velocity += IsometricMovement(direction * acceleration * delta);
-        MoveAndSlide();
     }
 
     private void ProcessPlayerActionInputs()
@@ -109,10 +81,14 @@ public partial class Player : CharacterBody2D
 
         if (direction != Vector2.Zero)
         {
-            GD.Print("Moving");
-            currentState = State.Move;
+            if (currentState != State.Attack)
+            {
+                GD.Print("Moving");
+                currentState = State.Move;
+                animationStateMachine.Travel("Move");
+            }
+
             UpdateAnimationState(direction);
-            animationStateMachine.Travel("Move");
             Velocity = Velocity.LimitLength(speed);
         }
 
@@ -144,7 +120,6 @@ public partial class Player : CharacterBody2D
 
     private void BasicAttack(float delta)
     {
-        ProcessPlayerMovementInputs(delta);
         animationStateMachine.Travel("Attack");
     }
 }
