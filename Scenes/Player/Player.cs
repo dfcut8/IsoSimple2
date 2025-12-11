@@ -100,7 +100,7 @@ public partial class Player : CharacterBody2D
             }
             else
             {
-                GD.Print("Idling");
+                // GD.Print("Idling");
                 // currentState = State.Idle;
                 animationStateMachine.Travel("Idle");
                 Velocity = Vector2.Zero;
