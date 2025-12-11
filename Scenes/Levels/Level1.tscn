@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qy45ppyy5g1l" path="res://Scenes/Interactables/Crate.tscn" id="2_36ke7"]
 
 [node name="Level1" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_5jgm0")]
 position = Vector2(59, 50)

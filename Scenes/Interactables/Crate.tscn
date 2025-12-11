@@ -99,6 +99,7 @@ _data = {
 radius = 15.0
 
 [node name="Crate" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_cbk4a")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
