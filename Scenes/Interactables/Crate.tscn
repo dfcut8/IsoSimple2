@@ -103,14 +103,14 @@ script = ExtResource("1_cbk4a")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 16, 15, 8, 10, 5, -5, 14)
-disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8srfx")
 hframes = 8
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_0cgwv")
 }
