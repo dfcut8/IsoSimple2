@@ -65,7 +65,7 @@ public partial class Player : CharacterBody2D
     {
         if (Input.IsActionJustPressed("player_attack"))
         {
-            GD.Print("Attacking");
+            // GD.Print("Attacking");
             currentState = State.Attack;
         }
     }
@@ -83,7 +83,7 @@ public partial class Player : CharacterBody2D
         {
             if (currentState != State.Attack)
             {
-                GD.Print("Moving");
+                // GD.Print("Moving");
                 currentState = State.Move;
                 animationStateMachine.Travel("Move");
             }
