@@ -92,7 +92,7 @@ public partial class Player : CharacterBody2D
             Velocity = Velocity.LimitLength(speed);
         }
 
-        if (direction == Vector2.Zero)
+        if (direction == Vector2.Zero && currentState != State.Attack)
         {
             if (Velocity.Length() > (friction * delta))
             {
