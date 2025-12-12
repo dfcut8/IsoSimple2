@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3bm0kixl38lr"]
+[gd_scene load_steps=6 format=4 uid="uid://d3bm0kixl38lr"]
 
 [ext_resource type="PackedScene" uid="uid://d082yo074j6d1" path="res://Scenes/Players/Player.tscn" id="1_5jgm0"]
 [ext_resource type="PackedScene" uid="uid://qy45ppyy5g1l" path="res://Scenes/Interactables/Crate.tscn" id="2_36ke7"]
 [ext_resource type="PackedScene" uid="uid://mh4vupi4raiv" path="res://Scenes/UserInterface/GameHud.tscn" id="3_riv1q"]
 [ext_resource type="PackedScene" uid="uid://dy0r60i80yp52" path="res://Scenes/Interactables/Hazards/Spike.tscn" id="4_xvio3"]
+[ext_resource type="TileSet" uid="uid://b4147wxl63oyq" path="res://Resources/TileSets/GroundTileSet.tres" id="5_kri6y"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -22,3 +23,10 @@ position = Vector2(113, 52)
 
 [node name="Spike" parent="." instance=ExtResource("4_xvio3")]
 position = Vector2(53, 95)
+
+[node name="Tiles" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="GroundTileMapLayer" type="TileMapLayer" parent="Tiles"]
+tile_map_data = PackedByteArray("AAADAAMAAAABAAAAAAAEAAIAAAACAAIAAAAEAAEAAAACAAIAAAAEAAAAAAACAAIAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAACAAAAAAAIAAAAAAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAKAAEAAAACAAIAAAAKAAIAAAACAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAJAAUAAAACAAIAAAAIAAUAAAACAAIAAAAHAAUAAAACAAIAAAAGAAUAAAACAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAACAAIAAAAEAAMAAAACAAIAAAADAAQAAAABAAAAAAADAAUAAAAAAAAAAAAEAAUAAAACAAIAAAAFAAUAAAACAAIAAAAFAAMAAAACAAIAAAAFAAIAAAACAAIAAAAFAAEAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAHAAEAAAACAAIAAAAIAAEAAAACAAIAAAAJAAIAAAACAAIAAAAIAAIAAAACAAIAAAAIAAMAAAACAAIAAAAIAAQAAAACAAIAAAAHAAQAAAACAAIAAAAHAAMAAAACAAIAAAAGAAMAAAACAAIAAAAHAAIAAAACAAIAAAAGAAEAAAACAAIAAAAGAAIAAAACAAIAAAAFAAAAAAACAAIAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAAAAAABAAAAAAADAP//AAAAAAEAAAA=")
+tile_set = ExtResource("5_kri6y")
