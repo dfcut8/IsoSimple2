@@ -17,11 +17,6 @@ public partial class Crate : StaticBody2D
 
     private void OnAreaEntered(Area2D other)
     {
-        // if (other.IsInGroup("Weapon"))
-        // {
-        //     animationPlayer.Play("Destroyed");
-        //     animationPlayer.AnimationFinished += OnDestroyAnimationFinished;
-        // }
         GD.Print($"AreaEntered. Other: {other.Name}");
         animationPlayer.Play("Destroyed");
         animationPlayer.AnimationFinished += OnDestroyAnimationFinished;
