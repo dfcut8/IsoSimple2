@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy0r60i80yp52"]
+
+[ext_resource type="Texture2D" uid="uid://bb40ya18lmcyl" path="res://Assets/Textures/spike_trap.png" id="1_ci4kh"]
+[ext_resource type="Script" uid="uid://h310dbqnrdiq" path="res://Scenes/Interactables/Hazards/Spike.cs" id="1_vsfnc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plcv0"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_plcv0"]
+resource_name = "Active"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_ci4kh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_myy8j"]
+_data = {
+&"Active": SubResource("Animation_plcv0"),
+&"RESET": SubResource("Animation_ci4kh")
+}
+
+[node name="Spike" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 16
+script = ExtResource("1_vsfnc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ci4kh")
+hframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_plcv0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_myy8j")
+}
+autoplay = "Active"

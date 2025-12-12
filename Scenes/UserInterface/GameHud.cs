@@ -29,7 +29,6 @@ public partial class GameHud : CanvasLayer
             var i = heart.GetIndex();
             var x = i % heartsRowSize * heartsOffset;
             var y = i / heartsRowSize * heartsOffset;
-            GD.Print($"Add sprite at {x}, {y}");
             heart.Position = new Vector2(x, y);
         }
     }
