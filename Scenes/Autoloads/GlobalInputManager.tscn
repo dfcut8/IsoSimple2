@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crg82odt3c1ti"]
+
+[ext_resource type="Script" uid="uid://bd26432w801y4" path="res://Scenes/Autoloads/GlobalInputManager.cs" id="1_jntk2"]
+
+[node name="GlobalInputManager" type="Node"]
+script = ExtResource("1_jntk2")
