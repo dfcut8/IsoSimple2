@@ -75,7 +75,9 @@ collision_layer = 16
 script = ExtResource("1_vsfnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 texture = ExtResource("1_ci4kh")
+offset = Vector2(0, 6)
 hframes = 8
 frame = 1
 
