@@ -1,6 +1,6 @@
 using System.Linq;
 using Godot;
-using Scenes.Player;
+using Scenes.Players;
 
 namespace Scenes.UserInterface;
 
