@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://mh4vupi4raiv"]
+[gd_scene load_steps=3 format=3 uid="uid://mh4vupi4raiv"]
 
+[ext_resource type="Script" uid="uid://b53hvghumjbv6" path="res://Scenes/UserInterface/GameHud.cs" id="1_2v2oe"]
 [ext_resource type="Texture2D" uid="uid://da3q3h3byejj6" path="res://Assets/Textures/HeartSpriteSheet.png" id="1_6nxpq"]
 
 [node name="GameHud" type="CanvasLayer"]
+script = ExtResource("1_2v2oe")
 
 [node name="Hearts" type="Sprite2D" parent="."]
-position = Vector2(29, 29)
+unique_name_in_owner = true
+position = Vector2(40, 35)
 scale = Vector2(2, 2)
 texture = ExtResource("1_6nxpq")
 hframes = 5
