@@ -15,7 +15,7 @@ public partial class Spike : Area2D
         GD.Print($"Spike: AreaEntered triggered by ${other.Name}");
         if (other is Player)
         {
-            PlayerState.SubstrateLive();
+            PlayerState.SubstrateLive(0.25f);
         }
     }
 }

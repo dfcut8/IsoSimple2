@@ -5,7 +5,8 @@
     "dictionaries": [],
     "words": [
         "Autoloads",
-        "Hframes"
+        "Hframes",
+        "Mathf"
     ],
     "ignoreWords": [
         "interactables"

@@ -1,14 +1,17 @@
+using Godot;
+
 namespace Scenes.Players;
 
 public static class PlayerState
 {
-    public static int CurrentLives { get; private set; } = 3;
+    public static float CurrentLives { get; private set; } = 3;
 
-    public static void SubstrateLive()
+    public static void SubstrateLive(float amount = 1.0f)
     {
+        GD.Print($"PlayerState: SubstrateLive triggered. amount: {amount}");
         if (CurrentLives > 0)
         {
-            CurrentLives--;
+            CurrentLives -= amount;
         }
     }
 }

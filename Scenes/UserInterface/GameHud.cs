@@ -30,6 +30,20 @@ public partial class GameHud : CanvasLayer
             var x = i % heartsRowSize * heartsOffset;
             var y = i / heartsRowSize * heartsOffset;
             heart.Position = new Vector2(x, y);
+            var lastFullHeart = Mathf.Floor(PlayerState.CurrentLives);
+            if (i > lastFullHeart)
+            {
+                heart.Frame = 0;
+            }
+            else if (i == lastFullHeart)
+            {
+                var f = (int)((PlayerState.CurrentLives - lastFullHeart) * 4);
+                heart.Frame = f;
+            }
+            else
+            {
+                heart.Frame = 4;
+            }
         }
     }
 }
