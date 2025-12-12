@@ -1,4 +1,4 @@
-namespace Scenes.Player;
+namespace Scenes.Players;
 
 public static class PlayerState
 {
