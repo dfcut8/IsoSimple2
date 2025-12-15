@@ -14,4 +14,10 @@ public static class PlayerState
             CurrentLives -= amount;
         }
     }
+
+    public static void ResetLives()
+    {
+        GD.Print("PlayerState: ResetLives triggered.");
+        CurrentLives = 3;
+    }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qy45ppyy5g1l"]
+[gd_scene format=3 uid="uid://qy45ppyy5g1l"]
 
 [ext_resource type="Texture2D" uid="uid://cqfxj0lsxixa3" path="res://Assets/Textures/crate_isometric.png" id="1_8srfx"]
 [ext_resource type="Script" uid="uid://beh7wfosmwaup" path="res://Scenes/Interactables/Crate.cs" id="1_cbk4a"]
@@ -98,28 +98,28 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_8srfx"]
 radius = 15.0
 
-[node name="Crate" type="StaticBody2D"]
+[node name="Crate" type="StaticBody2D" unique_id=1133412921]
 y_sort_enabled = true
 script = ExtResource("1_cbk4a")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1092995566]
 polygon = PackedVector2Array(0, 16, 15, 8, 0, 0, -16, 9)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088085989]
+position = Vector2(0, 8)
 texture = ExtResource("1_8srfx")
+offset = Vector2(0, -8)
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=772945306]
 unique_name_in_owner = true
 reset_on_save = false
-libraries = {
-&"": SubResource("AnimationLibrary_0cgwv")
-}
+libraries/ = SubResource("AnimationLibrary_0cgwv")
 
-[node name="HitArea" type="Area2D" parent="."]
+[node name="HitArea" type="Area2D" parent="." unique_id=1544026788]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 8
 
-[node name="HitAreaCollider" type="CollisionShape2D" parent="HitArea"]
+[node name="HitAreaCollider" type="CollisionShape2D" parent="HitArea" unique_id=649643862]
 shape = SubResource("CircleShape2D_8srfx")

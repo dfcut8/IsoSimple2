@@ -1,4 +1,5 @@
 using Godot;
+using Scenes.Players;
 
 namespace Scenes.Autoloads;
 
@@ -18,6 +19,7 @@ public partial class GlobalInputManager : Node
         if (Input.IsActionJustPressed(GLOBAL_INPUT_STAGE_RESET))
         {
             GetTree().ReloadCurrentScene();
+            PlayerState.ResetLives();
         }
     }
 }
