@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://d3bm0kixl38lr"]
+[gd_scene format=4 uid="uid://d3bm0kixl38lr"]
 
 [ext_resource type="PackedScene" uid="uid://d082yo074j6d1" path="res://Scenes/Players/Player.tscn" id="1_5jgm0"]
 [ext_resource type="PackedScene" uid="uid://qy45ppyy5g1l" path="res://Scenes/Interactables/Crate.tscn" id="2_36ke7"]
@@ -6,27 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://dy0r60i80yp52" path="res://Scenes/Interactables/Hazards/Spike.tscn" id="4_xvio3"]
 [ext_resource type="TileSet" uid="uid://b4147wxl63oyq" path="res://Resources/TileSets/GroundTileSet.tres" id="5_kri6y"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" unique_id=163815166]
 y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_5jgm0")]
+[node name="Player" parent="." unique_id=1879235975 instance=ExtResource("1_5jgm0")]
 position = Vector2(59, 50)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=786678149]
 position = Vector2(19, 9)
 zoom = Vector2(4, 4)
 
-[node name="GameHud" parent="." instance=ExtResource("3_riv1q")]
+[node name="GameHud" parent="." unique_id=1684726470 instance=ExtResource("3_riv1q")]
 
-[node name="Tiles" type="Node2D" parent="."]
+[node name="Tiles" type="Node2D" parent="." unique_id=1790328218]
 y_sort_enabled = true
 
-[node name="GroundTileMapLayer" type="TileMapLayer" parent="Tiles"]
+[node name="GroundTileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=326131552]
 tile_map_data = PackedByteArray("AAAJAAIAAAABAAIAAAAJAAEAAAABAAIAAAAJAAAAAAABAAIAAAAJAP//AAABAAIAAAAJAP7/AAACAAAAAAAIAAIAAAACAAIAAAAIAAEAAAACAAIAAAAIAAAAAAACAAIAAAAIAP//AAACAAIAAAAIAP7/AAABAAEAAAAHAAIAAAACAAIAAAAHAAEAAAACAAIAAAAHAAAAAAACAAIAAAAHAP//AAACAAIAAAAHAP7/AAABAAEAAAAGAAIAAAACAAIAAAAGAAEAAAACAAIAAAAGAAAAAAACAAIAAAAGAP//AAACAAIAAAAGAP7/AAAAAAMAAAAFAAIAAAACAAIAAAAFAAEAAAACAAIAAAAFAAAAAAACAAIAAAAFAP//AAACAAIAAAAFAP7/AAADAAMAAAAEAAIAAAACAAIAAAAEAAEAAAACAAIAAAAEAAAAAAACAAIAAAAEAP//AAACAAIAAAAEAP7/AAABAAEAAAADAAIAAAACAAIAAAADAAEAAAACAAIAAAADAAAAAAACAAIAAAADAP//AAACAAIAAAADAP7/AAABAAEAAAACAAIAAAABAAAAAAACAAEAAAABAAAAAAACAAAAAAABAAAAAAACAP//AAABAAAAAAACAP7/AAAAAAEAAAAJAAMAAAABAAIAAAAIAAMAAAACAAIAAAAHAAMAAAACAAIAAAAGAAMAAAACAAIAAAAFAAMAAAACAAIAAAAEAAMAAAACAAIAAAADAAMAAAACAAIAAAACAAMAAAABAAAAAAAJAAUAAAACAAEAAAAJAAQAAAABAAIAAAAIAAUAAAACAAMAAAAIAAQAAAACAAIAAAAHAAUAAAACAAIAAAAHAAQAAAACAAIAAAAGAAUAAAACAAIAAAAGAAQAAAACAAIAAAAFAAUAAAACAAIAAAAFAAQAAAACAAIAAAAEAAUAAAABAAMAAAAEAAQAAAACAAIAAAADAAUAAAAAAAIAAAADAAQAAAACAAIAAAACAAUAAAAAAAAAAAACAAQAAAABAAAAAAAIAAYAAAACAAEAAAAHAAYAAAACAAMAAAAGAAYAAAACAAIAAAAFAAYAAAABAAMAAAAEAAYAAAAAAAAAAAAHAAcAAAACAAEAAAAGAAcAAAAAAAIAAAAFAAcAAAAAAAAAAAAGAP3/AAABAAIAAAAGAPz/AAACAAAAAAAFAP3/AAABAAAAAAAFAPz/AAAAAAEAAAA=")
 tile_set = ExtResource("5_kri6y")
 
-[node name="Spike" parent="Tiles" instance=ExtResource("4_xvio3")]
+[node name="Spike" parent="Tiles" unique_id=1940076685 instance=ExtResource("4_xvio3")]
 position = Vector2(53, 95)
 
-[node name="Crate" parent="Tiles" instance=ExtResource("2_36ke7")]
+[node name="Crate" parent="Tiles" unique_id=376075879 instance=ExtResource("2_36ke7")]
 position = Vector2(113, 52)
