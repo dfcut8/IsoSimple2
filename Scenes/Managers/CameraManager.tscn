@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxut8jhq31s36"]
+
+[ext_resource type="Script" uid="uid://blrcbrgbl8q18" path="res://Scenes/Managers/CameraManager.cs" id="1_2gkl6"]
+
+[node name="CameraManager" type="Node2D" unique_id=2041332581]
+script = ExtResource("1_2gkl6")
