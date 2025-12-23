@@ -106,7 +106,9 @@ script = ExtResource("1_cbk4a")
 polygon = PackedVector2Array(0, 16, 15, 8, 0, 0, -16, 9)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2088085989]
+position = Vector2(0, 10)
 texture = ExtResource("1_8srfx")
+offset = Vector2(0, -10)
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=772945306]

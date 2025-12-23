@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy0r60i80yp52"]
+[gd_scene format=3 uid="uid://dy0r60i80yp52"]
 
 [ext_resource type="Texture2D" uid="uid://bb40ya18lmcyl" path="res://Assets/Textures/spike_trap.png" id="1_ci4kh"]
 [ext_resource type="Script" uid="uid://h310dbqnrdiq" path="res://Scenes/Interactables/Hazards/Spike.cs" id="1_vsfnc"]
@@ -69,24 +69,22 @@ _data = {
 &"RESET": SubResource("Animation_ci4kh")
 }
 
-[node name="Spike" type="Area2D"]
+[node name="Spike" type="Area2D" unique_id=332301712]
 y_sort_enabled = true
 collision_layer = 16
 script = ExtResource("1_vsfnc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=566955408]
 position = Vector2(0, -6)
 texture = ExtResource("1_ci4kh")
 offset = Vector2(0, 6)
 hframes = 8
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1407671452]
 shape = SubResource("CircleShape2D_plcv0")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_myy8j")
-}
-autoplay = "Active"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1511808126]
+libraries/ = SubResource("AnimationLibrary_myy8j")
+autoplay = &"Active"
