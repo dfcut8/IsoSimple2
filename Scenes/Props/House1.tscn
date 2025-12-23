@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c1jha7m7wp3lr"]
 
 [ext_resource type="Texture2D" uid="uid://dw07qpcl3mydt" path="res://Assets/Textures/house_1.png" id="1_8xmn0"]
+[ext_resource type="Script" uid="uid://di3pey03j47l3" path="res://Scenes/Props/Prop.cs" id="1_y4t2a"]
 
 [node name="House1" type="StaticBody2D" unique_id=2083213382]
 y_sort_enabled = true
+script = ExtResource("1_y4t2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=805600908]
 y_sort_enabled = true
@@ -14,3 +16,9 @@ hframes = 6
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=738622970]
 polygon = PackedVector2Array(-70, 43, 2, 79, 67, 49, 27, 29, -32, 28)
+
+[node name="Detector" type="Area2D" parent="." unique_id=695776415]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detector" unique_id=1008412170]
+polygon = PackedVector2Array(-64, 45, -64, -2, 62, -1, 63, 50)
