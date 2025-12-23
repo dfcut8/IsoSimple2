@@ -5,6 +5,9 @@ namespace Scenes.Managers;
 public partial class CameraManager : Node2D
 {
     [Export]
+    private float zoomLevel = 3f;
+
+    [Export]
     private Node levelLevelCameraBoundaries;
 
     [Export]
@@ -16,7 +19,7 @@ public partial class CameraManager : Node2D
         var bottom = levelLevelCameraBoundaries.GetNode<Marker2D>("Bottom");
         var left = levelLevelCameraBoundaries.GetNode<Marker2D>("Left");
         var right = levelLevelCameraBoundaries.GetNode<Marker2D>("Right");
-        followCamera.Zoom = new Vector2(4f, 4f);
+        followCamera.Zoom = new Vector2(zoomLevel, zoomLevel);
         followCamera.LimitEnabled = true;
         followCamera.LimitTop = (int)top.Position.Y;
         followCamera.LimitBottom = (int)bottom.Position.Y;
